@@ -31,14 +31,14 @@ const transporter = nodemailer.createTransport({
 });
 
 route.post('/email', (req, res) => {
-    const { to, subject, text, name, surname } = req.body;
+    const { to, subject, text, username} = req.body;
     console.log(req.body);
     const mailData = {
         from: 'commula55@gmail.com',
         to: to,
         subject: subject,
         text: text,
-        html: `<b>Hey ${name} ${surname}</b><br> ${text}<br/>`,
+        html: `<b>Hey ${username} </b><br> ${text}<br/>`,
     };
 
     transporter.sendMail(mailData, (error, info) => {
